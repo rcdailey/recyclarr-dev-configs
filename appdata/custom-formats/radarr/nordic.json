@@ -1,0 +1,29 @@
+{
+  "trash_id": "9c4b95e0e5af4b56b19d660654a2081f",
+  "trash_scores": {
+    "default": -10000
+  },
+  "trash_description": "Nordic release groups.",
+  "name": "NORDIC",
+  "includeCustomFormatWhenRenaming": false,
+  "specifications": [
+    {
+      "name": "EGEN",
+      "implementation": "ReleaseGroupSpecification",
+      "negate": false,
+      "required": false,
+      "fields": {
+        "value": "^(EGEN)$"
+      }
+    },
+    {
+      "name": "TWASERiES",
+      "implementation": "ReleaseGroupSpecification",
+      "negate": false,
+      "required": false,
+      "fields": {
+        "value": "^(TWASERiES)$"
+      }
+    }
+  ]
+}

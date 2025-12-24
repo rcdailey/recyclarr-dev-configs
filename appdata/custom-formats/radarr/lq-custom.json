@@ -1,0 +1,20 @@
+{
+  "trash_id": "272a2ffd6db6431296dac8e8a3c7ee98",
+  "trash_scores": {
+    "default": -10000
+  },
+  "trash_description": "Custom Low Quality release groups.",
+  "name": "LQ - Custom",
+  "includeCustomFormatWhenRenaming": false,
+  "specifications": [
+    {
+      "name": "PortalGoods",
+      "implementation": "ReleaseGroupSpecification",
+      "negate": false,
+      "required": false,
+      "fields": {
+        "value": "^(PortalGoods)$"
+      }
+    }
+  ]
+}

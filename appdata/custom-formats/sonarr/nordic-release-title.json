@@ -1,0 +1,20 @@
+{
+  "trash_id": "34a757e31f6c4afd88e376867368179e",
+  "trash_scores": {
+    "default": -10000
+  },
+  "trash_description": "Nordic release groups (release title).",
+  "name": "NORDIC (Release Title)",
+  "includeCustomFormatWhenRenaming": false,
+  "specifications": [
+    {
+      "name": "NORDIC",
+      "implementation": "ReleaseTitleSpecification",
+      "negate": false,
+      "required": false,
+      "fields": {
+        "value": "\\b(NORDIC|nordic)\\b"
+      }
+    }
+  ]
+}

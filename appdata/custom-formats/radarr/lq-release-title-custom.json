@@ -1,0 +1,20 @@
+{
+  "trash_id": "2f325208f8894802938696bd62dfb355",
+  "trash_scores": {
+    "default": -10000
+  },
+  "trash_description": "Custom Low Quality release groups (release title).",
+  "name": "LQ (Release Title) - Custom",
+  "includeCustomFormatWhenRenaming": false,
+  "specifications": [
+    {
+      "name": "HiDt_EniaHD",
+      "implementation": "ReleaseTitleSpecification",
+      "negate": false,
+      "required": false,
+      "fields": {
+        "value": "\\b(HiDt_EniaHD)\\b"
+      }
+    }
+  ]
+}

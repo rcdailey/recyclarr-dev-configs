@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=file:///home/robert/code/recyclarr/schemas/settings-schema.json
+
+# Edit this file to customize the behavior of Recyclarr beyond its defaults
+# For the settings file reference guide, visit the link to the wiki below:
+# https://recyclarr.dev/wiki/yaml/settings-reference/
+
+notifications:
+  apprise:
+    mode: stateful
+    base_url: http://localhost:8000
+    key: discord
+
+resource_providers:
+  - name: radarr-custom-cfs
+    type: custom-formats
+    path: custom-formats/radarr
+    service: radarr
+  - name: sonarr-custom-cfs
+    type: custom-formats
+    path: custom-formats/sonarr
+    service: sonarr

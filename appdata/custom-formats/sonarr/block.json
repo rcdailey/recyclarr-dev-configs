@@ -1,0 +1,20 @@
+{
+  "trash_id": "c1616a3e08004443b7406580e0e00b64",
+  "trash_scores": {
+    "default": -10000
+  },
+  "trash_description": "Block specific items based on the release title.",
+  "name": "Block",
+  "includeCustomFormatWhenRenaming": false,
+  "specifications": [
+    {
+      "name": "scr",
+      "implementation": "ReleaseTitleSpecification",
+      "negate": false,
+      "required": false,
+      "fields": {
+        "value": "\\bscr\\b"
+      }
+    }
+  ]
+}

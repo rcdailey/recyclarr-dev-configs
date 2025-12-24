@@ -1,0 +1,104 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
+# Place in /config location for recyclarr
+# Instance Definition: https://recyclarr.dev/wiki/yaml/config-reference/basic/
+# https://github.com/recyclarr/config-templates/tree/master
+sonarr:
+  sonarr:
+    base_url: http://localhost:8991
+    api_key: testkey
+    delete_old_custom_formats: true
+
+    # media_naming:
+    #   series: jellyfin-tvdb
+    #   season: default
+    #   episodes:
+    #     rename: true
+    #     standard: default
+    #     daily: default
+    #     anime: default
+
+    include:
+      # Comment out any of the following includes to disable them
+      - template: sonarr-quality-definition-series
+      # Choose between the standard or alternative quality profile setup (choose one only)
+      # - template: sonarr-v4-quality-profile-web-1080p
+      # - template: sonarr-v4-quality-profile-web-1080p-alternative
+      - template: sonarr-v4-custom-formats-web-1080p
+
+    # Custom Formats: https://recyclarr.dev/wiki/yaml/config-reference/custom-formats/
+    custom_formats:
+
+      - trash_ids:
+          - d6819cba26b1a6508138d25fb5e32293 # HD Bluray Tier 01
+        assign_scores_to:
+          - name: WEB-1080p
+            score: 1550
+
+      - trash_ids:
+          - c2216b7b8aa545dc1ce8388c618f8d57 # HD Bluray Tier 02
+        assign_scores_to:
+          - name: WEB-1080p
+            score: 1500
+
+      # Optional
+      - trash_ids:
+          - e1a997ddb54e3ecbfe06341ad323c458 # Obfuscated
+          - 06d66ab109d4d2eddb2794d21526d140 # Retags
+          - 1b3994c551cbb92a2c781af061f4ab44 # Scene
+        assign_scores_to:
+          - name: WEB-1080p
+            score: 0
+
+      - trash_ids:
+          - 32b367365729d530ca1c124a0b180c64 # Bad Dual Groups
+          - 82d40da2bc6923f41e14394075dd4b03 # No-RlsGroup
+        assign_scores_to:
+          - name: WEB-1080p
+
+      - trash_ids:
+          - 3bc5f395426614e155e585a2f056cdf1 # Season Pack
+        assign_scores_to:
+          - name: WEB-1080p
+            score: 10
+
+      - trash_ids:
+          - 7ba05c6e0e14e793538174c679126996 # Multi (language)
+        assign_scores_to:
+          - name: WEB-1080p
+            score: -10
+
+      # Custom
+      - trash_ids:
+          - c1616a3e08004443b7406580e0e00b64 # Block
+          - 5ae6dd7f0ce94c2dab408ea9f1a4369f # Language Not Original Not English
+          - 1588bbefafe444a8bc6e3a02d048d95e # Language Not Original
+          - 4c51484fd622408da6a3550317fa36f7 # LQ - Custom
+          - ee989bb6aeee490d9ddcbbfe9d5e8fed # LQ (Release Title) - Custom
+          - 7e8623f25d3d4443bb47c74ed5f733a8 # Nordic
+          - 34a757e31f6c4afd88e376867368179e # Nordic (Release Title)
+        assign_scores_to:
+          - name: WEB-1080p
+
+    quality_profiles:
+      - name: WEB-1080p
+        reset_unmatched_scores:
+          enabled: true
+        upgrade:
+          allowed: true
+          until_quality: WEB 1080p
+          until_score: 10000
+        min_format_score: 0
+        quality_sort: top
+        qualities:
+          - name: WEB 1080p
+            qualities:
+              - WEBDL-1080p
+              - WEBRip-1080p
+          - name: Bluray-1080p
+          - name: HDTV-1080p
+          - name: WEB 720p
+            qualities:
+              - WEBDL-720p
+              - WEBRip-720p
+          - name: Bluray-720p
+          - name: HDTV-720p
