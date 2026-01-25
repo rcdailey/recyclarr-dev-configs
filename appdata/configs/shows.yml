@@ -1,11 +1,13 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
+# yaml-language-server: $schema=../../../recyclarr/schemas/config-schema.json
 sonarr:
   shows:
     base_url: http://localhost:8990
     api_key: testkey
 
     delete_old_custom_formats: true
-    replace_existing_custom_formats: true
+
+    media_management:
+      propers_and_repacks: do_not_upgrade
 
     include:
       - template: sonarr-quality-definition-series

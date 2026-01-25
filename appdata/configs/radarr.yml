@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
+# yaml-language-server: $schema=../../../recyclarr/schemas/config-schema.json
 # Place in /config location for recyclarr
 # Instance Definition: https://recyclarr.dev/wiki/yaml/config-reference/basic/
 radarr:
@@ -6,6 +6,9 @@ radarr:
     base_url: http://localhost:7891
     api_key: testkey
     delete_old_custom_formats: true
+
+    media_management:
+      propers_and_repacks: do_not_prefer
 
     # media_naming:
     #   folder: jellyfin-tmdb
@@ -23,6 +26,10 @@ radarr:
       - template: radarr-custom-formats-sqp-1-1080p
 
     quality_profiles:
+      # Guide-backed profile - enables auto-sync of default CF groups
+      - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
+        name: UHD Test Profile
+
       - name: SQP-1 (1080p)
         reset_unmatched_scores:
             enabled: true
@@ -84,6 +91,18 @@ radarr:
             qualities:
               - WEBDL-720p
               - WEBRip-720p
+
+    # CF Groups: auto-sync default groups for guide-backed profiles (UHD Test Profile)
+    # Groups with default: true that include UHD Bluray + WEB will auto-sync:
+    #   - Audio Formats (9d5acd8f1da78dfbae788182f7605200)
+    #   - HDR Formats HDR (ef20e67b95a381fb3bc6d1f06ea24f46)
+    custom_format_groups:
+      skip:
+        # Opt-out of Audio Formats (will still get HDR Formats via auto-sync)
+        - 9d5acd8f1da78dfbae788182f7605200
+      add:
+        # Opt-in to Streaming Services UK (no default flag, so requires explicit add)
+        - trash_id: f737e18b5824d6ebb2d57b957ae2fd6c
 
     custom_formats:
       # start https://github.com/recyclarr/config-templates/blob/master/radarr/includes/custom-formats/radarr-custom-formats-hd-bluray-web.yml

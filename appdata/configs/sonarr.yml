@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
+# yaml-language-server: $schema=../../../recyclarr/schemas/config-schema.json
 # Place in /config location for recyclarr
 # Instance Definition: https://recyclarr.dev/wiki/yaml/config-reference/basic/
 # https://github.com/recyclarr/config-templates/tree/master
@@ -7,6 +7,9 @@ sonarr:
     base_url: http://localhost:8991
     api_key: testkey
     delete_old_custom_formats: true
+
+    media_management:
+      propers_and_repacks: prefer_and_upgrade
 
     include:
       - template: sonarr-quality-definition-series
@@ -66,11 +69,16 @@ sonarr:
           - name: WEB-1080p
 
     quality_profiles:
-      # Guide-backed profile with only name override (uses guide defaults)
-      - trash_id: 72dae194fc92bf828f32cde7744e51a1 # WEB-1080p
-        name: My Custom WEB-1080p
+      # Guide-backed profile - enables auto-sync of default CF groups
+      # Using WEB-2160p to test auto-sync with HDR Formats group
+      - trash_id: d1498e7d189fbe6c7110ceaabb7473e6 # WEB-2160p
+        name: My Custom WEB-2160p
 
-      # User-defined profile (no trash_id - not guide-backed)
+      # Guide-backed profile for the template CFs
+      - trash_id: 72dae194fc92bf828f32cde7744e51a1 # WEB-1080p
+        name: WEB-1080p
+
+      # User-defined profile (no trash_id - not guide-backed, no auto-sync)
       - name: Manual Profile
         reset_unmatched_scores:
           enabled: true
@@ -78,7 +86,6 @@ sonarr:
           allowed: true
           until_quality: WEB 1080p
           until_score: 5000
-        min_format_score: 100
         quality_sort: top
         qualities:
           - name: WEB 1080p
@@ -86,3 +93,12 @@ sonarr:
               - WEBDL-1080p
               - WEBRip-1080p
           - name: HDTV-1080p
+
+    # CF Groups: auto-sync default groups for guide-backed profiles (WEB-2160p)
+    # HDR Formats HDR (7e1724c5da59e7474803ad25be98f6a3) will auto-sync
+    # Note: Audio Formats NOT used for WEB profiles per guide recommendation
+    custom_format_groups:
+      skip: []
+      add:
+        # Opt-in to Streaming Services UK (includes WEB-2160p profile)
+        - trash_id: ddab3095a5d2f436f369263840af34f9
