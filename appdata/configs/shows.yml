@@ -9,8 +9,10 @@ sonarr:
     media_management:
       propers_and_repacks: do_not_upgrade
 
+    quality_definition:
+      type: series
+
     include:
-      - template: sonarr-quality-definition-series
       # Local include template for WEB-2160p quality profile
       - config: sonarr-qp-web-2160p.yml
 

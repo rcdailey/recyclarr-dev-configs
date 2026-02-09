@@ -16,14 +16,8 @@ radarr:
     #     rename: true
     #     standard: jellyfin-tmdb
 
-    include:
-      # Comment out any of the following includes to disable them
-      - template: radarr-quality-definition-movie
-      # - template: radarr-quality-profile-hd-bluray-web # Add WEB 720p
-      # - template: radarr-custom-formats-hd-bluray-web
-      # SQP-1
-      - template: radarr-quality-profile-sqp-1-1080p
-      - template: radarr-custom-formats-sqp-1-1080p
+    quality_definition:
+      type: movie
 
     quality_profiles:
       # Guide-backed profile - enables auto-sync of default CF groups

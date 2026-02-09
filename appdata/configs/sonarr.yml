@@ -11,9 +11,8 @@ sonarr:
     media_management:
       propers_and_repacks: prefer_and_upgrade
 
-    include:
-      - template: sonarr-quality-definition-series
-      - template: sonarr-v4-custom-formats-web-1080p
+    quality_definition:
+      type: series
 
     # Custom Formats: https://recyclarr.dev/wiki/yaml/config-reference/custom-formats/
     custom_formats:
