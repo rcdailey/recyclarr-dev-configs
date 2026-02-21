@@ -24,9 +24,9 @@ radarr:
       - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
         name: UHD Test Profile
 
-      - name: SQP-1 (1080p)
-        reset_unmatched_scores:
-            enabled: true
+      # - name: SQP-1 (1080p)
+      #   reset_unmatched_scores:
+      #       enabled: true
       - name: HD Bluray + WEB
         reset_unmatched_scores:
           enabled: true
@@ -173,7 +173,7 @@ radarr:
           - name: HD Bluray + WEB
           - name: HD WEB
           - name: HD Bluray + WEB sans Lang
-          - name: SQP-1 (1080p)
+          # - name: SQP-1 (1080p)
 
       - trash_ids:
           - 7357cf5161efbf8c4d5d0c30b4815ee2 # Obfuscated
@@ -184,8 +184,8 @@ radarr:
             score: 0
           - name: HD WEB
             score: 0
-          - name: SQP-1 (1080p)
-            score: 0
+          # - name: SQP-1 (1080p)
+            # score: 0
           - name: HD Bluray + WEB sans Lang
             score: 0
 
@@ -209,8 +209,8 @@ radarr:
             score: -10
           - name: HD WEB
             score: -10
-          - name: SQP-1 (1080p)
-            score: -10
+          # - name: SQP-1 (1080p)
+          #   score: -10
           - name: HD Bluray + WEB sans Lang
             score: -10
 
@@ -225,7 +225,7 @@ radarr:
           - name: HD Bluray + WEB
           - name: HD WEB
           - name: HD Bluray + WEB sans Lang
-          - name: SQP-1 (1080p)
+          # - name: SQP-1 (1080p)
 
       # Custom
       - trash_ids:
@@ -236,4 +236,4 @@ radarr:
           - name: HD WEB
           - name: HD Bluray + WEB sans Lang
             score: 0
-          - name: SQP-1 (1080p)
+          # - name: SQP-1 (1080p)
