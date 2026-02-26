@@ -7,14 +7,17 @@ radarr:
     api_key: testkey
     delete_old_custom_formats: true
 
+    include:
+      - config: radarr-qp-uhd-strict.yml
+
     media_management:
       propers_and_repacks: do_not_prefer
 
-    # media_naming:
-    #   folder: jellyfin-tmdb
-    #   movie:
-    #     rename: true
-    #     standard: jellyfin-tmdb
+    media_naming:
+      folder: jellyfin-tmdb
+      movie:
+        rename: true
+        standard: jellyfin-tmdb
 
     quality_definition:
       type: movie
@@ -23,6 +26,13 @@ radarr:
       # Guide-backed profile - enables auto-sync of default CF groups
       - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
         name: UHD Test Profile
+
+      # Same guide profile, different name and overrides (repeated trash_id test)
+      - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
+        name: UHD Strict
+        upgrade:
+          allowed: false
+        min_format_score: 1000
 
       # - name: SQP-1 (1080p)
       #   reset_unmatched_scores:

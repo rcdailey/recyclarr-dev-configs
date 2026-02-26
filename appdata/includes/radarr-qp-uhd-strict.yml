@@ -1,0 +1,11 @@
+# 3rd instance of UHD Bluray + WEB, included via local include
+quality_profiles:
+  - trash_id: 64fb5f9858489bdac2af690e27c8f42f # UHD Bluray + WEB
+    name: UHD Minimal
+    upgrade:
+      allowed: true
+      until_quality: Bluray-2160p
+      until_score: 5000
+    min_format_score: 500
+    reset_unmatched_scores:
+      enabled: true

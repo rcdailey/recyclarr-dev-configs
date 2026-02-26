@@ -8,11 +8,14 @@ sonarr:
     api_key: testkey
     delete_old_custom_formats: true
 
+    include:
+      - config: sonarr-qp-web-1080p-kids.yml
+
     media_management:
       propers_and_repacks: prefer_and_upgrade
 
-    quality_definition:
-      type: series
+    # quality_definition:
+    #   type: series2
 
     # Custom Formats: https://recyclarr.dev/wiki/yaml/config-reference/custom-formats/
     custom_formats:
@@ -77,6 +80,15 @@ sonarr:
       - trash_id: 72dae194fc92bf828f32cde7744e51a1 # WEB-1080p
         name: WEB-1080p
 
+      # Same guide profile, different name and overrides (repeated trash_id test)
+      - trash_id: 72dae194fc92bf828f32cde7744e51a1 # WEB-1080p
+        name: WEB-1080p Anime
+        upgrade:
+          allowed: true
+          until_quality: WEB 1080p
+          until_score: 10000
+        min_format_score: 100
+
       # User-defined profile (no trash_id - not guide-backed, no auto-sync)
       - name: Manual Profile
         reset_unmatched_scores:
@@ -101,3 +113,7 @@ sonarr:
       add:
         # Opt-in to Streaming Services UK (includes WEB-2160p profile)
         - trash_id: ddab3095a5d2f436f369263840af34f9
+        # Exercise #734 fix: target only one variant by name
+        - trash_id: e9a1944a254e6f8a9da63083f7ae15cb # [Audio] Audio Formats
+          assign_scores_to:
+            - name: WEB-1080p Anime
