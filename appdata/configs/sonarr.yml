@@ -11,6 +11,13 @@ sonarr:
     include:
       - config: sonarr-qp-web-1080p-kids.yml
 
+    media_naming:
+      series: plex-tvdb
+      season: default
+      episodes:
+        rename: true
+        standard: default
+
     media_management:
       propers_and_repacks: prefer_and_upgrade
 
