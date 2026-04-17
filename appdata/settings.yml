@@ -7,7 +7,7 @@
 notifications:
   apprise:
     mode: stateful
-    base_url: http://localhost:8000
+    base_url: !env_var APPRISE_URL http://localhost:8000
     key: recyclarr
 
 resource_providers:

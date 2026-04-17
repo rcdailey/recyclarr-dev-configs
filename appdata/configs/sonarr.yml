@@ -4,7 +4,7 @@
 # https://github.com/recyclarr/config-templates/tree/master
 sonarr:
   sonarr:
-    base_url: http://localhost:8991
+    base_url: !env_var SONARR_URL http://localhost:8991
     api_key: testkey
     delete_old_custom_formats: true
 

@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../../../recyclarr/schemas/config-schema.json
 sonarr:
   shows:
-    base_url: http://localhost:8990
+    base_url: !env_var SHOWS_URL http://localhost:8990
     api_key: testkey
 
     delete_old_custom_formats: true
