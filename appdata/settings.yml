@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=file:///home/robert/code/recyclarr-workspace/recyclarr/schemas/settings-schema.json
+# yaml-language-server: $schema=../../recyclarr/schemas/settings-schema.json
 
 # Edit this file to customize the behavior of Recyclarr beyond its defaults
 # For the settings file reference guide, visit the link to the wiki below:
@@ -9,6 +9,7 @@ notifications:
     mode: stateful
     base_url: !env_var APPRISE_URL http://localhost:8000
     key: recyclarr
+  verbosity: verbose
 
 resource_providers:
   - name: radarr-custom-cfs
