@@ -45,6 +45,17 @@ sonarr:
               - WEBDL-1080p
               - WEBRip-1080p
           - name: HDTV-1080p # Override: Added HDTV which guide excludes
+        # Per-profile sizes are Sonarr v5 only; on v4 this is skipped with a warning
+        quality_definition:
+          type: series
+          qualities:
+            - name: HDTV-1080p
+              min: 6
+              max: 60
+              preferred: 40
+
+      # Local guide profile with trash_quality_definition; v4 ignores the link silently
+      - trash_id: d3v00000000000000000000000000001
 
     custom_formats:
       # Unwanted - applies to all profiles

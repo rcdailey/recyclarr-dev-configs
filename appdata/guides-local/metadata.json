@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TRaSH-Guides/Guides/refs/heads/master/metadata.schema.json",
+  "json_paths": {
+    "radarr": {
+      "custom_formats": [],
+      "qualities": [],
+      "naming": [],
+      "custom_format_groups": [],
+      "quality_profiles": []
+    },
+    "sonarr": {
+      "custom_formats": [],
+      "qualities": [],
+      "naming": [],
+      "custom_format_groups": [],
+      "quality_profiles": ["docs/Sonarr/quality-profiles"]
+    }
+  }
+}

@@ -21,8 +21,10 @@ sonarr:
     media_management:
       propers_and_repacks: prefer_and_upgrade
 
-    # quality_definition:
-    #   type: series2
+    # Instance sizes: on Sonarr v5 they apply only to profiles listed under quality_profiles
+    # that have no profile-level or guide-linked sizes
+    quality_definition:
+      type: series
 
     # Custom Formats: https://recyclarr.dev/wiki/yaml/config-reference/custom-formats/
     custom_formats:
@@ -111,6 +113,18 @@ sonarr:
               - WEBDL-1080p
               - WEBRip-1080p
           - name: HDTV-1080p
+        # Per-profile sizes (Sonarr v5); wins over guide-linked and instance sizes
+        quality_definition:
+          type: series
+          qualities:
+            - name: HDTV-1080p
+              min: 6
+              max: 60
+              preferred: 40
+
+      # Local guide profile that links the guide's series sizes via trash_quality_definition
+      # (guides-local provider in settings.yml)
+      - trash_id: d3v00000000000000000000000000001
 
     # CF Groups: auto-sync default groups for guide-backed profiles (WEB-2160p)
     # HDR Formats HDR (7e1724c5da59e7474803ad25be98f6a3) will auto-sync

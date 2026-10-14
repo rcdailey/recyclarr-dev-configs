@@ -20,3 +20,7 @@ resource_providers:
     type: custom-formats
     path: custom-formats/sonarr
     service: sonarr
+  # Guide data not yet upstream (e.g. trash_quality_definition on Sonarr profiles)
+  - name: guides-local
+    type: trash-guides
+    path: guides-local

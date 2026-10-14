@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../recyclarr/schemas/cli-schema.json
+
+server:
+  base_url: http://localhost:7982
