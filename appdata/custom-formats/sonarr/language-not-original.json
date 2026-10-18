@@ -4,7 +4,7 @@
     "default": -10000
   },
   "trash_description": "Language is not Original.",
-  "name": "Language: Not Original",
+  "name": "Language: Not Original - Custom",
   "includeCustomFormatWhenRenaming": false,
   "specifications": [
     {
